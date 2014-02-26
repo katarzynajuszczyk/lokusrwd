@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">    
+        <head>
+        	<meta http-equiv="refresh" content="300" />
+            <meta charset='utf-8'>
+            <title>Lokus - Logg inn</title>	    
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--<link href="/opensso/css/new_style.css" rel="stylesheet" type="text/css" />-->
+        <!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />-->
+        <link rel="stylesheet" type="text/css" href="https://www.lokus.no/extension/lokus/design/lokus/stylesheets/layout.css" />
+	    <link rel="stylesheet" type="text/css" href="https://www.lokus.no/extension/lokus/design/lokus/stylesheets/lokus.css" />
+        <link rel="stylesheet" type="text/css" href="https://www.lokus.no/extension/lokus/design/lokus/stylesheets/lokus_header.css" />
+        <link rel="stylesheet" type="text/css" href="https://www.lokus.no/extension/lokus/design/lokus/stylesheets/login_style.css" />
+        <link rel="stylesheet" type="text/css" href="mobile_login.css" />
+        
+        <script type="text/javascript" src="https://www.lokus.no/extension/lokus/design/lokus/javascript/jquery-1.7.1.minified.js"></script>
+        <script type="text/javascript" src="https://www.lokus.no/extension/lokus/design/lokus/javascript/jquery_plugins/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="login.js"></script>
+        <script type="text/javascript">
+               $(function() {
+
+                    $("#login_no").click(function(){
+                        $(".login_container").removeClass("blue").addClass("white");
+                    });
+
+                    var activeTab = "";
+                    $( "#tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+                    $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+                    $( "#tabs" ).tabs({
+                         beforeActivate: function( event, ui ) {
+                             var elementNumbers = $("#tabs ul li").size();
+                             if(ui.newTab.context.hash=="#tabs-3" && elementNumbers == 3){
+                                // window.location.href="?realm=personlig&goto=http%3A%2F%2Fwww.lokus.no%2Fmypage";
+                             } else if(ui.newTab.context.hash=="#tabs-2" && elementNumbers == 2){
+                                 //window.location.href="?realm=personlig&goto=http%3A%2F%2Fwww.lokus.no%2Fmypage";
+                                 window.location.href="privat.html?realm=privat&mode=1";
+                             }
+                         }
+                     });
+                     if( activeTab == 2 ){
+                         $( "#tabs").tabs({ active: 1 });
+                     }
+                });
+         </script>
+
+            <!--[if IE]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+            <!--[if IE 9]> <link href="/opensso/css/ie9.css" rel="stylesheet" type="text/css"> <![endif]-->
+            <!--[if lte IE 7]> <link href="/opensso/css/ie7.css" rel="stylesheet" type="text/css"> <![endif]-->
+            <!--<script language="JavaScript" src="/opensso/js/auth.js" type="text/javascript"></script>-->
+            
+        </head>
+        <body class="login">
+           
+            <header id="acolokusHeadercontainer" class="minimal">
+                <div role="banner">
+                    <div id="acolokusLogo">
+                        <a href="http://www.lokus.no" title="Lokus">
+                            <span>Lokus</span>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <div id="main">
+            <div class="main_content">
+             
+        
+		    <div class="login_container blue">
+                <div class="content-wrapper">
+                    <div class="login-start">
+                        <h2>Vil du logge inn med FEIDE?</h2>
+                    </div>
+                    <div class="hidden">
+                        <h2>Logg inn</h2>
+                    </div>
+                    <div id="tabs" class="hidden">
+                        <ul>
+                            <li>
+
+                                    <a href="#tabs-1">L&aelig;rer uten FEIDE</a>
+
+                            </li>
+
+                            <li><a href="#tabs-2">Privat <span>Privatist/elev. Privatperson</span></a></li>
+                        </ul>
+                        <div id="tabs-1">
+                          <div class="tab-content">
+                            <div class="wrapper">
+                            <h4 class="spaced-header">L&aelig;rere uten FEIDE kan logge inn her</h4>
+                                <div class="buttons_col">
+                                    <form id="login_form" class="hidden" action="/opensso/UI/Login" method="post">
+                                        <input type="text" name="IDToken1" id="IDToken1" title="Brukernavn">
+                                        <input type="password" name="IDToken2" id="IDToken2" title="Passord">
+                                        <input type="hidden" name="realm" value="privat" />
+                                        <input type="hidden" name="goto" value="aHR0cDovL3d3dy5sb2t1cy5uby9teXBhZ2U=" />
+                                        <input type="hidden" name="gotoOnFail" value=""/>
+                                        <input type="hidden" name="SunQueryParamsString" value="cmVhbG09cHJpdmF0Jg==" />
+                                        <input type="hidden" name="encoded" value="true" />
+                                        <button type="submit" class="login_btn inactive" id="submit_btn">LOGG INN</button>
+                                        <a href="http://www.lokus.no" id="cancel_btn">Avbryt</a>
+                                    </form>
+                                 </div><!--buttons-->
+                                <div class="help-line">
+                                   <div class="faq_container faq1">
+                                        <div class="answer">
+                                        </div>
+                                    </div>
+                               </div>
+                             </div><!--wrapper-->
+                         </div><!--tab-content-->
+                      </div><!--tabs-1-->
+                      <div id="tabs-2"></div>
+
+                    </div><!-- end tabs-->
+
+                    <div class="login_buttons ">
+                        <div class="buttons_col">
+                            <button class="login_btn inactive" id="login_yes">JA
+                               <span id="login_key_help_login_mode"></span>
+                            </button>
+                        </div>
+                        <div class="buttons_col">
+                            <button class="login_btn inactive" id="login_no">NEI
+                                <span id="mosquito_help"></span>
+                            </button>
+                        </div>
+
+                        <div class="help-line">
+                            <div class="faq_container faq4">
+                                 <div class="answer">
+                                 </div>
+                             </div>
+                        </div>
+
+			<div class="cancel-line">
+                            <a href="http://www.lokus.no" id="cancel_btn">Avbryt</a>
+			</div>
+                    </div><!--end login buttons -->
+
+                 <div class="error_message">
+                </div>
+               </div><!-- end content-wrapper -->
+             </div> <!-- end login_container -->
+            
+		    <a title="G&aring; til Aschehoug" href="http://www.aschehoug.no" target="_blank">
+			<img src="https://www.lokus.no/extension/lokus/design/lokus/images/graphics/aschehoug_logo.png" id="aco_tag" alt="Aschehoug">
+		    </a>
+
+		</div>
+
+        <!-- end main_content -->
+	    </div> <!-- end main -->
+	    <div style="display:none" id="feide_url">/opensso/spssoinit?metaAlias=/feide/sp&idpEntityID=https://idp.feide.no&NameIDFormat=transient&RelayState=http%3A%2F%2Fwww.lokus.no%2Fmypage</div>
+	    <div style="display:none" id="return_url">http://www.lokus.no/mypage</div>
+        </body>
+    
+</html>
