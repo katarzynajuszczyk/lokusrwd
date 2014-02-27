@@ -53,25 +53,33 @@
                 // code that takes it easy...
 
                 if ($(window).outerWidth() > 767) {
-                    $(".login_container").removeClass("white").addClass("blue");
-                    $('#tabs, .tabs-header').addClass('hidden');
+                    if (!noClicked) {
+                        $(".login_container").removeClass("white").addClass("blue");
+                        $('#tabs, .tabs-header').addClass('hidden');
+                    }
+
+                
                 } else {
                     //if Mobile
                     $(".login_container").removeClass("blue").addClass("white");
                     $('#tabs, .tabs-header').removeClass('hidden');
+
+                   
                 }
             });
 
 
                $(function() {
-
+                   var noClicked = false;
                     $("#login_no").click(function(){
                         $(".login_container").removeClass("blue").addClass("white");
                         $('#tabs, .tabs-header').removeClass('hidden');
+                        noClicked = true;
                     });
 
                     var activeTab = "";
-                    $("#tabs").tabs({
+                    $tabs = $('#tabs');
+                    $tabs.tabs({
                         collapsible: true,
                         active: false
                     }).addClass( "ui-tabs-vertical ui-helper-clearfix" );
@@ -120,6 +128,7 @@
                     </div>
                     <div id="tabs" class="hidden">
                         <ul>
+                            <li class="visible-xs"> <span id="login_yes_mobile">Vil du logge inn med FEIDE?</span> </li>
                             <li>
                                 <a class="hidden-xs" href="#tabs-1">L&aelig;rer uten FEIDE</a>
                                 <a class="visible-xs" data-toggle="collapse" data-parent="#tabs" href="#collapse-1">L&aelig;rer uten FEIDE</a>

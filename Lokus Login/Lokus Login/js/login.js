@@ -28,7 +28,7 @@ $(document).ready(function(){
 
    $("#login_form input").blur();
    
-   $("#login_yes").click(function(){     
+   $("#login_yes, #login_yes_mobile").click(function(){     
        
        var feide_url = $('#feide_url').html();
        feide_url = $("<div/>").html(feide_url).text();
