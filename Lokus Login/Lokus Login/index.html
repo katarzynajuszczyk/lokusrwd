@@ -19,6 +19,8 @@
         <script type="text/javascript" src="js/bootstrap.js"></script>
         <script type="text/javascript" src="js/login.js"></script>
         <script type="text/javascript">
+            var noClicked = false;
+
             (function ($, sr) {
 
                 // debouncing function from John Hann
@@ -70,7 +72,7 @@
 
 
                $(function() {
-                   var noClicked = false;
+                  
                     $("#login_no").click(function(){
                         $(".login_container").removeClass("blue").addClass("white");
                         $('#tabs, .tabs-header').removeClass('hidden');
@@ -127,15 +129,15 @@
                         <h2>Logg inn</h2>
                     </div>
                     <div id="tabs" class="hidden">
-                        <ul>
+                        <ul id="parent">
                             <li class="visible-xs"> <span id="login_yes_mobile">Vil du logge inn med FEIDE?</span> </li>
-                            <li>
+                            <li class="panel">
                                 <a class="hidden-xs" href="#tabs-1">L&aelig;rer uten FEIDE</a>
-                                <a class="visible-xs" data-toggle="collapse" data-parent="#tabs" href="#collapse-1">L&aelig;rer uten FEIDE</a>
-                                <div id="collapse-1" class="hidden-md hidden-lg hidden-sm collapse">
+                                <a class="visible-xs collapsed" data-toggle="collapse" data-parent="#parent" href="#collapse-1">L&aelig;rer uten FEIDE</a>
+                                <div id="collapse-1" class="hidden-md hidden-lg hidden-sm collapse tab-pane">
                                   <div class="tab-content">
                                     <div class="wrapper">
-                                    <h4 class="spaced-header">L&aelig;rere uten FEIDE kan logge inn her</h4>
+                                    <h4 class="spaced-header hidden-xs">L&aelig;rere uten FEIDE kan logge inn her</h4>
                                         <div class="buttons_col">
                                             <form id="Form2" class="login_form" action="/opensso/UI/Login" method="post">
                                                 <input type="text" name="IDToken1" id="Text2" title="Brukernavn">
@@ -160,10 +162,10 @@
                               </div><!--tabs-1-->
 
                             </li>
-                            <li>
+                            <li class="panel">
                                 <a class="hidden-xs"  href="#tabs-2">Privat <span>Privatist/elev. Privatperson</span></a>
-                                <a class="visible-xs" data-toggle="collapse" data-parent="#tabs" href="#collapse-2">Privat <span>Privatist/elev. Privatperson</span></a>
-                                <div id="collapse-2" class="hidden-md hidden-lg hidden-sm collapse">
+                                <a class="visible-xs collapsed" data-toggle="collapse" data-parent="#parent" href="#collapse-2">Privat <span>Privatist/elev. Privatperson</span></a>
+                                <div id="collapse-2" class="hidden-md hidden-lg hidden-sm collapse tab-pane">
                                    <div class="tab-content">
                                     <div class="wrapper">
                                         <div class="buttons_col">

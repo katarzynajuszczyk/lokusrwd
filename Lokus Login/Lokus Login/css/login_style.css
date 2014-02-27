@@ -42,13 +42,13 @@ h4{
     padding: 0px 5px 0px 5px;
     cursor: pointer;
 }
-.ui-tabs-vertical .ui-tabs-nav li a { 
+.ui-tabs-vertical .ui-tabs-nav li > a { 
     display:block; 
     text-decoration: none;
     background-color: #FFF;
     border-bottom: 1px solid #404A56;
     padding: 20px;
-    background: url('../images/graphics/icons/blue_arrow.png') no-repeat center right transparent;
+    background: url('http://www.lokus.no/extension/lokus/design/lokus/images/graphics/icons/blue_arrow.png') no-repeat center right transparent;
     font-weight: bold;
 }
 #tabs.ui-tabs-vertical .ui-tabs-nav li a span{
@@ -59,12 +59,12 @@ h4{
 }
 
 .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active {
-    background: url('../images/graphics/groups/group_list_item_shadow.png') no-repeat center bottom transparent;
+    background: url('http://www.lokus.no/extension/lokus/design/lokus/images/graphics/groups/group_list_item_shadow.png') no-repeat center bottom transparent;
     padding-bottom: 10px;
 }
 
 .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active > a{
-    background: url('../images/graphics/icons/black_arrow.png') no-repeat center right #E6ECF1;
+    background: url('http://www.lokus.no/extension/lokus/design/lokus/images/graphics/icons/black_arrow.png') no-repeat center right #E6ECF1;
 }
 
 .ui-tabs-vertical .ui-tabs-panel { 
@@ -96,7 +96,7 @@ h4{
 }
   
 #login_key_help {
-    background: url("../images/graphics/icons/key.png") no-repeat scroll left center transparent;
+    background: url("http://www.lokus.no/extension/lokus/design/lokus/images/graphics/icons/key.png") no-repeat scroll left center transparent;
     width: 66px;
     height: 67px;
     position: absolute;
@@ -106,7 +106,7 @@ h4{
 
 .faq_container {
     margin-bottom: 20px;
-    background: url("../images/graphics/icons/faq_arrow_right.png") no-repeat left top transparent;
+    background: url("http://www.lokus.no/extension/lokus/design/lokus/images/graphics/icons/faq_arrow_right.png") no-repeat left top transparent;
     padding-left: 30px;
     line-height: 20px;
     min-height: 20px;
@@ -157,7 +157,7 @@ body.login .login_container .login_buttons {
   }
 
   #login_key_help_login_mode{
-    background: url("../images/graphics/icons/key.png") no-repeat scroll left center transparent;
+    background: url("http://www.lokus.no/extension/lokus/design/lokus/images/graphics/icons/key.png") no-repeat scroll left center transparent;
     width:66px;
     height:67px;
     position:absolute;
