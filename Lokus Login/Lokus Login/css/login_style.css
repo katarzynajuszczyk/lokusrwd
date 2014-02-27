@@ -1,0 +1,193 @@
+/* 
+    Document   : login_style
+    Created on : Jun 12, 2013, 10:54:07 AM
+    Author     : developer
+    Description:
+        Purpose of the stylesheet follows.
+*/
+h1,h2{
+    padding:20px 0px 5px 20px;
+    margin: 0px;
+    text-transform: uppercase;
+}
+
+h4{
+    font-size:1.5em;
+    font-weight: normal;
+}
+
+#tabs{
+    margin-bottom: 10px;
+    float: left;
+}
+
+#tabs span{
+    padding-left: 20px;
+    font-size: 1.3em;
+}
+
+#tabs>span{
+    width: 100%;
+    clear: both;
+    float: left;
+}
+
+.ui-tabs-vertical { width: 100%; }
+.ui-tabs-vertical .ui-tabs-nav { 
+    float: left; 
+    width: 26%;
+    margin:10px 0px 40px 0px;
+}
+.ui-tabs-vertical .ui-tabs-nav li {
+    padding: 0px 5px 0px 5px;
+    cursor: pointer;
+}
+.ui-tabs-vertical .ui-tabs-nav li a { 
+    display:block; 
+    text-decoration: none;
+    background-color: #FFF;
+    border-bottom: 1px solid #404A56;
+    padding: 20px;
+    background: url('../images/graphics/icons/blue_arrow.png') no-repeat center right transparent;
+    font-weight: bold;
+}
+#tabs.ui-tabs-vertical .ui-tabs-nav li a span{
+    font-weight: normal;
+    font-size: 1em;
+    display: block;
+    padding-left: 0px;
+}
+
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active {
+    background: url('../images/graphics/groups/group_list_item_shadow.png') no-repeat center bottom transparent;
+    padding-bottom: 10px;
+}
+
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active > a{
+    background: url('../images/graphics/icons/black_arrow.png') no-repeat center right #E6ECF1;
+}
+
+.ui-tabs-vertical .ui-tabs-panel { 
+    background-color: #E6ECF1;
+    width: 73%;
+    float: left;
+    min-height: 200px;
+    margin-top: 10px;
+}
+
+.tab-content{
+    float: left;
+    width: 90%;
+    padding: 20px;
+}
+
+.tab-content .wrapper{
+    float:left;
+    width:100%;
+    position: relative;
+    margin-top: 20px;
+}
+  
+.new_user {
+    position: absolute;
+    bottom: 18px;
+    left: 310px;
+    font-weight: bold;
+}
+  
+#login_key_help {
+    background: url("../images/graphics/icons/key.png") no-repeat scroll left center transparent;
+    width: 66px;
+    height: 67px;
+    position: absolute;
+    top: -30px;
+    left: 85px;
+}
+
+.faq_container {
+    margin-bottom: 20px;
+    background: url("../images/graphics/icons/faq_arrow_right.png") no-repeat left top transparent;
+    padding-left: 30px;
+    line-height: 20px;
+    min-height: 20px;
+}
+  
+body.login .login_container .login_buttons {
+    width: 100%;
+}
+
+.tab-content .help-line,.help-line{
+  float: right;
+  width: 315px;
+  margin-top: 15px;
+}
+
+.help-line p{
+    margin: 0px;
+}
+
+  .tab-content .register-user{
+      padding-bottom:5px;
+      padding-top:100px;
+      display:block;
+  }
+
+  .tab-content .wrapper .left-col{
+      width:40%;
+      float:left;
+      
+  }
+
+  .login{
+      display:block;
+  }
+
+  #login_form{
+    width: 250px;
+    padding: 10px;
+  }
+
+  .hidden{
+      display:none;
+  }
+
+  #reselect{
+      float:left;
+      margin-top:30px;
+  }
+
+  #login_key_help_login_mode{
+    background: url("../images/graphics/icons/key.png") no-repeat scroll left center transparent;
+    width:66px;
+    height:67px;
+    position:absolute;
+    top: -40px;
+}
+
+.main_content{
+    background-color: #fff;
+}
+
+.content-wrapper{
+    padding-left:20px;
+}
+body .login_container{
+    width: 100%;
+    padding: 0px;
+}
+body .login_container.white{
+    background-color: #fff;
+    width: 100%;
+    padding: 0px;
+}
+
+body .login_container.blue .login-start{
+    display: block;
+}
+body .login_container.white .login-start{
+    display: none;
+}
+
+.answer{
+    display: none;
+}

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">    
+        <head>
+        	<meta http-equiv="refresh" content="300" />
+            <meta charset='utf-8'>
+            <title>Lokus - Logg inn</title>	    
+            
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+        <link rel="stylesheet" type="text/css" href="https://www.lokus.no/extension/lokus/design/lokus/stylesheets/layout.css" />
+	    <link rel="stylesheet" type="text/css" href="https://www.lokus.no/extension/lokus/design/lokus/stylesheets/lokus.css" />
+        <link rel="stylesheet" type="text/css" href="https://www.lokus.no/extension/lokus/design/lokus/stylesheets/lokus_header.css" />
+        <link rel="stylesheet" type="text/css" href="css/login_style.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="css/mobile_login.css" />
+        
+        <script type="text/javascript" src="https://www.lokus.no/extension/lokus/design/lokus/javascript/jquery-1.7.1.minified.js"></script>
+        <script type="text/javascript" src="https://www.lokus.no/extension/lokus/design/lokus/javascript/jquery_plugins/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/login.js"></script>
+        <script type="text/javascript">
+            (function ($, sr) {
+
+                // debouncing function from John Hann
+                // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
+                var debounce = function (func, threshold, execAsap) {
+                    var timeout;
+
+                    return function debounced() {
+                        var obj = this, args = arguments;
+                        function delayed() {
+                            if (!execAsap)
+                                func.apply(obj, args);
+                            timeout = null;
+                        };
+
+                        if (timeout)
+                            clearTimeout(timeout);
+                        else if (execAsap)
+                            func.apply(obj, args);
+
+                        timeout = setTimeout(delayed, threshold || 50);
+                    };
+                }
+                // smartresize 
+                jQuery.fn[sr] = function (fn) { return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
+
+            })(jQuery, 'smartresize');
+
+
+            // usage:
+            $(window).smartresize(function () {
+                // code that takes it easy...
+
+                if ($(window).outerWidth() > 767) {
+                    $(".login_container").removeClass("white").addClass("blue");
+                    $('#tabs, .tabs-header').addClass('hidden');
+                } else {
+                    //if Mobile
+                    $(".login_container").removeClass("blue").addClass("white");
+                    $('#tabs, .tabs-header').removeClass('hidden');
+                }
+            });
+
+
+               $(function() {
+
+                    $("#login_no").click(function(){
+                        $(".login_container").removeClass("blue").addClass("white");
+                        $('#tabs, .tabs-header').removeClass('hidden');
+                    });
+
+                    var activeTab = "";
+                    $("#tabs").tabs({
+                        collapsible: true,
+                        active: false
+                    }).addClass( "ui-tabs-vertical ui-helper-clearfix" );
+                   
+
+                    $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+                    
+                   //if Mobile
+                    if ($(window).outerWidth() < 767) {
+                        $(".login_container").removeClass("blue").addClass("white");
+                        $('#tabs, .tabs-header').removeClass('hidden');
+                    }
+
+                });
+         </script>
+
+            <!--[if IE]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+            <!--[if IE 9]> <link href="/opensso/css/ie9.css" rel="stylesheet" type="text/css"> <![endif]-->
+            <!--[if lte IE 7]> <link href="/opensso/css/ie7.css" rel="stylesheet" type="text/css"> <![endif]-->
+            <!--<script language="JavaScript" src="/opensso/js/auth.js" type="text/javascript"></script>-->
+            
+        </head>
+        <body class="login">
+           
+            <header id="acolokusHeadercontainer" class="minimal">
+                <div role="banner">
+                    <div id="acolokusLogo">
+                        <a href="http://www.lokus.no" title="Lokus">
+                            <span>Lokus</span>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <div id="main">
+            <div class="main_content">
+             
+        
+		    <div class="login_container blue">
+                <div class="content-wrapper">
+                    <div class="login-start hidden-xs">
+                        <h2>Vil du logge inn med FEIDE?</h2>
+                    </div>
+                    <div class="hidden tabs-header">
+                        <h2>Logg inn</h2>
+                    </div>
+                    <div id="tabs" class="hidden">
+                        <ul>
+                            <li>
+                                <a class="hidden-xs" href="#tabs-1">L&aelig;rer uten FEIDE</a>
+                                <a class="visible-xs" data-toggle="collapse" data-parent="#tabs" href="#collapse-1">L&aelig;rer uten FEIDE</a>
+                                <div id="collapse-1" class="hidden-md hidden-lg hidden-sm collapse">
+                                  <div class="tab-content">
+                                    <div class="wrapper">
+                                    <h4 class="spaced-header">L&aelig;rere uten FEIDE kan logge inn her</h4>
+                                        <div class="buttons_col">
+                                            <form id="Form2" class="login_form" action="/opensso/UI/Login" method="post">
+                                                <input type="text" name="IDToken1" id="Text2" title="Brukernavn">
+                                                <input type="password" name="IDToken2" id="Password2" title="Passord">
+                                                <input type="hidden" name="realm" value="privat" />
+                                                <input type="hidden" name="goto" value="aHR0cDovL3d3dy5sb2t1cy5uby9teXBhZ2U=" />
+                                                <input type="hidden" name="gotoOnFail" value=""/>
+                                                <input type="hidden" name="SunQueryParamsString" value="cmVhbG09cHJpdmF0Jg==" />
+                                                <input type="hidden" name="encoded" value="true" />
+                                                <button type="submit" class="login_btn inactive" id="Button2">LOGG INN</button>
+                                                <a href="http://www.lokus.no" id="A2">Avbryt</a>
+                                            </form>
+                                         </div><!--buttons-->
+                                        <div class="help-line">
+                                           <div class="faq_container faq1">
+                                                <div class="answer">
+                                                </div>
+                                            </div>
+                                       </div>
+                                     </div><!--wrapper-->
+                                 </div><!--tab-content-->
+                              </div><!--tabs-1-->
+
+                            </li>
+                            <li>
+                                <a class="hidden-xs"  href="#tabs-2">Privat <span>Privatist/elev. Privatperson</span></a>
+                                <a class="visible-xs" data-toggle="collapse" data-parent="#tabs" href="#collapse-2">Privat <span>Privatist/elev. Privatperson</span></a>
+                                <div id="collapse-2" class="hidden-md hidden-lg hidden-sm collapse">
+                                   <div class="tab-content">
+                                    <div class="wrapper">
+                                        <div class="buttons_col">
+                                            <form id="Form3" class="login_form"  action="/opensso/UI/Login" method="post">
+                                                <input type="text" name="IDToken1" id="Text3" title="Brukernavn">
+                                                <input type="password" name="IDToken2" id="Password3" title="Passord">
+                                                <input type="hidden" name="realm" value="personlig" />
+                                                <input type="hidden" name="goto" value="aHR0cDovL3d3dy5sb2t1cy5uby9teXBhZ2U=" />
+                                                <input type="hidden" name="gotoOnFail" value=""/>
+                                                <input type="hidden" name="SunQueryParamsString" value="cmVhbG09cGVyc29ubGlnJg==" />
+                                                <input type="hidden" name="encoded" value="true" />
+					                            <a href="https://www.lokus.no/forgotpassword">Glemt passord</a></br>
+                                                <button type="submit" class="login_btn inactive" id="Button3">LOGG INN</button>
+                                                <a href="http://www.lokus.no" id="A3">Avbryt</a>
+                                            </form>
+                                        </div><!--buttons-->
+                                        <div class="help-line">
+                                           <div class="faq_container">
+				                                <p>For &aring; bruke lisenser som er kj&oslash;pt f&oslash;r 7. august 2013 m&aring; du g&aring; til <a href="http://vgs.lokus.no">vgs.lokus.no</a> og logge inn med din gamle Lokus-bruker.</p>
+                                            </div>
+                                       </div>
+                                       <div class="new_user">
+                                           <a href="https://www.lokus.no/register/new">Registrer ny bruker</a>
+                                       </div>
+                                     </div><!--wrapper-->
+                                 </div><!--tab-content-->
+
+                              </div>
+
+                            
+                            </li>
+                        </ul>
+                        <div id="tabs-1" class="hidden-xs">
+                          <div class="tab-content">
+                            <div class="wrapper">
+                            <h4 class="spaced-header">L&aelig;rere uten FEIDE kan logge inn her</h4>
+                                <div class="buttons_col">
+                                    <form id="login_form" class="login_form" action="/opensso/UI/Login" method="post">
+                                        <input type="text" name="IDToken1" id="IDToken1" title="Brukernavn">
+                                        <input type="password" name="IDToken2" id="IDToken2" title="Passord">
+                                        <input type="hidden" name="realm" value="privat" />
+                                        <input type="hidden" name="goto" value="aHR0cDovL3d3dy5sb2t1cy5uby9teXBhZ2U=" />
+                                        <input type="hidden" name="gotoOnFail" value=""/>
+                                        <input type="hidden" name="SunQueryParamsString" value="cmVhbG09cHJpdmF0Jg==" />
+                                        <input type="hidden" name="encoded" value="true" />
+                                        <button type="submit" class="login_btn inactive" id="submit_btn">LOGG INN</button>
+                                        <a href="http://www.lokus.no" id="cancel_btn">Avbryt</a>
+                                    </form>
+                                 </div><!--buttons-->
+                                <div class="help-line">
+                                   <div class="faq_container faq1">
+                                        <div class="answer">
+                                        </div>
+                                    </div>
+                               </div>
+                             </div><!--wrapper-->
+                         </div><!--tab-content-->
+                      </div><!--tabs-1-->
+                      <div id="tabs-2" class="hidden-xs">
+                           <div class="tab-content">
+                            <div class="wrapper">
+                                <div class="buttons_col">
+                                    <form id="Form1" class="login_form"  action="/opensso/UI/Login" method="post">
+                                        <input type="text" name="IDToken1" id="Text1" title="Brukernavn">
+                                        <input type="password" name="IDToken2" id="Password1" title="Passord">
+                                        <input type="hidden" name="realm" value="personlig" />
+                                        <input type="hidden" name="goto" value="aHR0cDovL3d3dy5sb2t1cy5uby9teXBhZ2U=" />
+                                        <input type="hidden" name="gotoOnFail" value=""/>
+                                        <input type="hidden" name="SunQueryParamsString" value="cmVhbG09cGVyc29ubGlnJg==" />
+                                        <input type="hidden" name="encoded" value="true" />
+					                    <a href="https://www.lokus.no/forgotpassword">Glemt passord</a></br>
+                                        <button type="submit" class="login_btn inactive" id="Button1">LOGG INN</button>
+                                        <a href="http://www.lokus.no" id="A1">Avbryt</a>
+                                    </form>
+                                </div><!--buttons-->
+                                <div class="help-line">
+                                   <div class="faq_container">
+				                        <p>For &aring; bruke lisenser som er kj&oslash;pt f&oslash;r 7. august 2013 m&aring; du g&aring; til <a href="http://vgs.lokus.no">vgs.lokus.no</a> og logge inn med din gamle Lokus-bruker.</p>
+                                    </div>
+                               </div>
+                               <div class="new_user">
+                                   <a href="https://www.lokus.no/register/new">Registrer ny bruker</a>
+                               </div>
+                             </div><!--wrapper-->
+                         </div><!--tab-content-->
+
+                      </div>
+
+                    </div><!-- end tabs-->
+
+                    <div class="login_buttons hidden-xs">
+                        <div class="buttons_col">
+                            <button class="login_btn inactive" id="login_yes">JA
+                               <span id="login_key_help_login_mode"></span>
+                            </button>
+                        </div>
+                        <div class="buttons_col">
+                            <button class="login_btn inactive" id="login_no">NEI
+                                <span id="mosquito_help"></span>
+                            </button>
+                        </div>
+
+                        <div class="help-line">
+                            <div class="faq_container faq4">
+                                 <div class="answer">
+                                 </div>
+                             </div>
+                        </div>
+
+			<div class="cancel-line">
+                            <a href="http://www.lokus.no" id="cancel_btn">Avbryt</a>
+			</div>
+                    </div><!--end login buttons -->
+
+                    <div class="error_message"></div>
+
+
+               </div><!-- end content-wrapper -->
+             </div> <!-- end login_container -->
+            
+		    <a title="G&aring; til Aschehoug" href="http://www.aschehoug.no" target="_blank">
+			<img src="https://www.lokus.no/extension/lokus/design/lokus/images/graphics/aschehoug_logo.png" id="aco_tag" alt="Aschehoug">
+		    </a>
+
+		</div>
+
+        <!-- end main_content -->
+	    </div> <!-- end main -->
+	    <div style="display:none" id="feide_url">/opensso/spssoinit?metaAlias=/feide/sp&idpEntityID=https://idp.feide.no&NameIDFormat=transient&RelayState=http%3A%2F%2Fwww.lokus.no%2Fmypage</div>
+	    <div style="display:none" id="return_url">http://www.lokus.no/mypage</div>
+        </body>
+    
+</html>
